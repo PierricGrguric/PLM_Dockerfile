@@ -1,7 +1,7 @@
-FROM ingensi/play-framework
+FROM pierricgrguric/docker-play-framework
 
-RUN yum update -y && yum install -y git
-RUN git clone --verbose https://github.com/MatthieuNICOLAS/webPLM.git
+RUN apt-get -y update && apt-get -y install git
+RUN git clone https://github.com/MatthieuNICOLAS/webPLM.git --depth 1
 WORKDIR webPLM
 RUN activator compile
 RUN activator clean stage
